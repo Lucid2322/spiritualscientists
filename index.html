@@ -8,530 +8,626 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --ink:       #1a1a2e;
-      --dusk:      #16213e;
-      --cosmos:    #0f3460;
-      --gold:      #c9a84c;
-      --gold-soft: #e8c97d;
-      --mist:      #f0ece4;
-      --paper:     #faf8f4;
-      --white:     #ffffff;
-      --text-body: #3d3b45;
-      --text-muted:#7a7585;
+      --ink:#1a1a2e; --dusk:#16213e; --cosmos:#0f3460;
+      --gold:#c9a84c; --gold-soft:#e8c97d;
+      --mist:#f0ece4; --paper:#faf8f4;
+      --white:#ffffff; --text-body:#3d3b45; --text-muted:#7a7585;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--paper);
-      color: var(--text-body);
-      font-size: 16px;
-      line-height: 1.7;
-    }
+    body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(--text-body); font-size: 16px; line-height: 1.7; }
 
     /* NAV */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(26,26,46,0.97);
-      backdrop-filter: blur(8px);
-      padding: 0 2rem;
-      display: flex; align-items: center; justify-content: space-between;
-      height: 60px;
-      border-bottom: 1px solid rgba(201,168,76,0.2);
-    }
-    .nav-brand {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem; font-weight: 600;
-      color: var(--gold); letter-spacing: 0.04em;
-      text-decoration: none;
-    }
+    nav { position: sticky; top: 0; z-index: 200; background: rgba(26,26,46,0.97); backdrop-filter: blur(8px); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px; border-bottom: 1px solid rgba(201,168,76,0.2); }
+    .nav-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: var(--gold); letter-spacing: 0.04em; text-decoration: none; }
     .nav-links { display: flex; gap: 1.8rem; }
-    .nav-links a {
-      color: rgba(255,255,255,0.7);
-      text-decoration: none; font-size: 0.82rem;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      transition: color 0.2s;
-    }
+    .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
     .nav-links a:hover { color: var(--gold-soft); }
 
     /* HERO */
-    .hero {
-      background: linear-gradient(160deg, var(--ink) 0%, var(--cosmos) 100%);
-      padding: 6rem 2rem 5rem;
-      text-align: center;
-      position: relative; overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.12) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero-label {
-      display: inline-block;
-      border: 1px solid rgba(201,168,76,0.5);
-      color: var(--gold-soft);
-      font-size: 0.72rem; letter-spacing: 0.18em;
-      text-transform: uppercase;
-      padding: 0.35rem 1.1rem;
-      border-radius: 20px; margin-bottom: 1.8rem;
-    }
-    .hero h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.6rem, 6vw, 4.8rem);
-      font-weight: 300; color: var(--white);
-      line-height: 1.15; margin-bottom: 1rem;
-    }
+    .hero { background: linear-gradient(160deg, var(--ink) 0%, var(--cosmos) 100%); padding: 6rem 2rem 5rem; text-align: center; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.12) 0%, transparent 70%); pointer-events: none; }
+    .hero-label { display: inline-block; border: 1px solid rgba(201,168,76,0.5); color: var(--gold-soft); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; padding: 0.35rem 1.1rem; border-radius: 20px; margin-bottom: 1.8rem; }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.6rem, 6vw, 4.8rem); font-weight: 300; color: var(--white); line-height: 1.15; margin-bottom: 1rem; }
     .hero h1 em { font-style: italic; color: var(--gold-soft); }
-    .hero-sub {
-      color: rgba(255,255,255,0.6);
-      max-width: 540px; margin: 0 auto 1.5rem;
-      font-size: 1rem; font-weight: 300;
-    }
-    .hero-tagline {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      color: var(--gold-soft);
-      font-size: 1.05rem;
-      margin-bottom: 2rem;
-      opacity: 0.85;
-    }
-    .hero-divider {
-      width: 48px; height: 1px;
-      background: var(--gold);
-      margin: 0 auto; opacity: 0.6;
-    }
+    .hero-sub { color: rgba(255,255,255,0.6); max-width: 540px; margin: 0 auto 1.2rem; font-size: 1rem; font-weight: 300; }
+    .hero-tagline { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--gold-soft); font-size: 1.05rem; margin-bottom: 2rem; opacity: 0.85; }
+    .hero-divider { width: 48px; height: 1px; background: var(--gold); margin: 0 auto; opacity: 0.6; }
 
     /* CONTAINER */
     .container { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
 
     /* SECTION HEADING */
     .section-head { text-align: center; padding: 4rem 0 2.5rem; }
-    .section-head .eyebrow {
-      display: block; font-size: 0.7rem; letter-spacing: 0.2em;
-      text-transform: uppercase; color: var(--gold); margin-bottom: 0.7rem;
-    }
-    .section-head h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      font-weight: 400; color: var(--ink); line-height: 1.25;
-    }
+    .section-head .eyebrow { display: block; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.7rem; }
+    .section-head h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 400; color: var(--ink); line-height: 1.25; }
 
-    /* FEATURED CARD */
-    .featured-card {
-      background: var(--dusk);
-      border-radius: 12px;
-      padding: 2.8rem 2.8rem 2.2rem;
-      margin-bottom: 2.5rem;
-      border-left: 3px solid var(--gold);
-      position: relative;
-    }
-    .featured-tag {
-      position: absolute; top: -11px; left: 2rem;
-      background: var(--gold); color: var(--ink);
-      font-size: 0.65rem; font-weight: 500;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      padding: 0.25rem 0.75rem; border-radius: 20px;
-    }
-    .qa-question {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem; font-weight: 400; font-style: italic;
-      color: var(--gold-soft); line-height: 1.35; margin-bottom: 1.3rem;
-    }
-    .qa-answer {
-      color: rgba(255,255,255,0.8);
-      font-size: 0.95rem; line-height: 1.9;
-    }
-    .qa-meta {
-      margin-top: 1.5rem;
-      display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding-top: 1rem;
-    }
+    /* FEATURED */
+    .featured-card { background: var(--dusk); border-radius: 12px; padding: 2.8rem; margin-bottom: 2.5rem; border-left: 3px solid var(--gold); position: relative; cursor: pointer; transition: opacity 0.2s; }
+    .featured-card:hover { opacity: 0.92; }
+    .featured-tag { position: absolute; top: -11px; left: 2rem; background: var(--gold); color: var(--ink); font-size: 0.65rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 20px; }
+    .qa-question { font-family: 'Cormorant Garamond', serif; font-size: 1.55rem; font-weight: 400; font-style: italic; color: var(--gold-soft); line-height: 1.35; margin-bottom: 1.2rem; }
+    .qa-answer { color: rgba(255,255,255,0.8); font-size: 0.95rem; line-height: 1.9; }
+    .qa-meta { margin-top: 1.5rem; display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem; }
     .qa-date { font-size: 0.75rem; color: rgba(255,255,255,0.3); }
-    .qa-tag-pill {
-      font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
-      background: rgba(201,168,76,0.12); color: var(--gold-soft);
-      padding: 0.2rem 0.65rem; border-radius: 20px;
-      border: 1px solid rgba(201,168,76,0.25);
-    }
+    .qa-tag-pill { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; background: rgba(201,168,76,0.12); color: var(--gold-soft); padding: 0.2rem 0.65rem; border-radius: 20px; border: 1px solid rgba(201,168,76,0.25); }
+    .read-featured { display: inline-block; margin-top: 1.2rem; font-size: 0.82rem; color: var(--gold); font-weight: 500; letter-spacing: 0.04em; }
 
-    /* FILTER BAR */
-    .filter-bar {
-      display: flex; flex-wrap: wrap; gap: 0.6rem;
-      margin-bottom: 2rem; justify-content: center;
-    }
-    .filter-btn {
-      background: transparent;
-      border: 1px solid rgba(201,168,76,0.3);
-      color: var(--text-muted);
-      padding: 0.4rem 1rem; border-radius: 20px;
-      font-size: 0.75rem; letter-spacing: 0.08em;
-      text-transform: uppercase; cursor: pointer;
-      transition: all 0.2s; font-family: 'DM Sans', sans-serif;
-    }
-    .filter-btn:hover, .filter-btn.active {
-      background: rgba(201,168,76,0.12);
-      border-color: var(--gold); color: var(--gold);
-    }
+    /* FILTER */
+    .filter-bar { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 2rem; justify-content: center; }
+    .filter-btn { background: transparent; border: 1px solid rgba(201,168,76,0.3); color: var(--text-muted); padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: all 0.2s; font-family: 'DM Sans', sans-serif; }
+    .filter-btn:hover, .filter-btn.active { background: rgba(201,168,76,0.12); border-color: var(--gold); color: var(--gold); }
 
-    /* BLOG GRID */
-    .blog-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 1.4rem; padding-bottom: 4rem;
-    }
-    .blog-card {
-      background: var(--white);
-      border-radius: 10px; padding: 1.8rem;
-      border: 1px solid rgba(0,0,0,0.06);
-      transition: box-shadow 0.25s, transform 0.25s;
-      display: flex; flex-direction: column;
-    }
-    .blog-card:hover {
-      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-      transform: translateY(-3px);
-    }
+    /* GRID */
+    .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.4rem; padding-bottom: 4rem; }
+    .blog-card { background: var(--white); border-radius: 10px; padding: 1.8rem; border: 1px solid rgba(0,0,0,0.06); transition: box-shadow 0.25s, transform 0.25s; display: flex; flex-direction: column; cursor: pointer; }
+    .blog-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.1); transform: translateY(-3px); }
     .blog-card.hidden { display: none; }
-    .card-category {
-      font-size: 0.68rem; letter-spacing: 0.14em;
-      text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem;
-    }
-    .card-q {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.15rem; font-weight: 400; font-style: italic;
-      color: var(--ink); line-height: 1.4; margin-bottom: 0.8rem;
-    }
-    .card-preview {
-      font-size: 0.88rem; color: var(--text-muted); line-height: 1.75;
-      flex: 1;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-    .card-footer {
-      display: flex; justify-content: space-between; align-items: center;
-      margin-top: 1.2rem; padding-top: 1rem;
-      border-top: 1px solid rgba(0,0,0,0.06);
-    }
+    .card-category { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
+    .card-q { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 400; font-style: italic; color: var(--ink); line-height: 1.4; margin-bottom: 0.8rem; }
+    .card-preview { font-size: 0.88rem; color: var(--text-muted); line-height: 1.75; flex: 1; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid rgba(0,0,0,0.06); }
     .card-date { font-size: 0.72rem; color: var(--text-muted); }
-    .read-more {
-      font-size: 0.78rem; color: var(--gold);
-      text-decoration: none; font-weight: 500;
-    }
+    .card-read { font-size: 0.78rem; color: var(--gold); font-weight: 500; }
+
+    /* MODAL OVERLAY */
+    .modal-overlay { display: none; position: fixed; inset: 0; z-index: 300; background: rgba(15,15,30,0.85); backdrop-filter: blur(6px); overflow-y: auto; padding: 2rem 1rem; }
+    .modal-overlay.open { display: block; }
+    .modal-box { background: var(--paper); max-width: 720px; margin: 0 auto; border-radius: 14px; overflow: hidden; position: relative; animation: slideUp 0.3s ease; }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    .modal-header { background: linear-gradient(135deg, var(--ink), var(--cosmos)); padding: 3rem 2.5rem 2rem; position: relative; }
+    .modal-close { position: absolute; top: 1.2rem; right: 1.5rem; background: rgba(255,255,255,0.1); border: none; color: rgba(255,255,255,0.7); width: 36px; height: 36px; border-radius: 50%; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+    .modal-close:hover { background: rgba(255,255,255,0.2); }
+    .modal-category { font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: block; }
+    .modal-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 400; font-style: italic; color: var(--white); line-height: 1.3; }
+    .modal-meta { display: flex; gap: 0.7rem; flex-wrap: wrap; margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1); }
+    .modal-date { font-size: 0.75rem; color: rgba(255,255,255,0.4); }
+    .modal-tag { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; background: rgba(201,168,76,0.15); color: var(--gold-soft); padding: 0.2rem 0.65rem; border-radius: 20px; border: 1px solid rgba(201,168,76,0.3); }
+    .modal-body { padding: 2.5rem; }
+    .modal-body p { font-size: 0.97rem; line-height: 1.95; color: var(--text-body); margin-bottom: 1.3rem; }
+    .modal-body h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: var(--ink); margin: 2rem 0 0.8rem; }
+    .modal-body blockquote { border-left: 3px solid var(--gold); padding: 0.8rem 1.2rem; margin: 1.5rem 0; background: rgba(201,168,76,0.05); border-radius: 0 8px 8px 0; }
+    .modal-body blockquote p { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.08rem; color: var(--cosmos); margin: 0; }
+    .modal-body .mantra { text-align: center; font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-style: italic; color: var(--gold); padding: 1.5rem; background: rgba(201,168,76,0.05); border-radius: 8px; margin: 1.5rem 0; }
+    .modal-footer { padding: 1.5rem 2.5rem; border-top: 1px solid rgba(0,0,0,0.07); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .quora-link { font-size: 0.82rem; color: var(--gold); text-decoration: none; font-weight: 500; }
+    .quora-link:hover { text-decoration: underline; }
+    .modal-nav { display: flex; gap: 0.8rem; }
+    .modal-nav button { background: var(--ink); color: rgba(255,255,255,0.7); border: none; padding: 0.45rem 1rem; border-radius: 6px; font-size: 0.78rem; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: background 0.2s; }
+    .modal-nav button:hover { background: var(--cosmos); color: white; }
+
+    /* THEMES */
+    .themes { background: linear-gradient(135deg, var(--ink), var(--dusk)); padding: 3.5rem 2rem; text-align: center; }
+    .themes-label { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: block; }
+    .themes-pills { display: flex; flex-wrap: wrap; gap: 0.65rem; justify-content: center; }
+    .theme-pill { background: rgba(255,255,255,0.05); border: 1px solid rgba(201,168,76,0.25); color: rgba(255,255,255,0.75); padding: 0.45rem 1.1rem; border-radius: 24px; font-size: 0.83rem; }
 
     /* ABOUT */
     .about { background: var(--mist); padding: 5rem 2rem; }
     .about-inner { max-width: 680px; margin: 0 auto; text-align: center; }
     .about-symbol { font-size: 2.2rem; margin-bottom: 1.2rem; }
-    .about-inner h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem; font-weight: 400;
-      color: var(--ink); margin-bottom: 1rem;
-    }
-    .about-inner p {
-      color: var(--text-muted); font-size: 0.95rem; line-height: 1.9;
-      margin-bottom: 1rem;
-    }
-    .about-quote {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic; font-size: 1.15rem;
-      color: var(--cosmos); margin-top: 1.5rem;
-      border-left: 2px solid var(--gold);
-      padding-left: 1.2rem; text-align: left;
-    }
-
-    /* THEMES */
-    .themes {
-      background: linear-gradient(135deg, var(--ink), var(--dusk));
-      padding: 3.5rem 2rem; text-align: center;
-    }
-    .themes-label {
-      font-size: 0.7rem; letter-spacing: 0.2em;
-      text-transform: uppercase; color: var(--gold);
-      margin-bottom: 1.5rem; display: block;
-    }
-    .themes-pills {
-      display: flex; flex-wrap: wrap;
-      gap: 0.65rem; justify-content: center;
-    }
-    .theme-pill {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(201,168,76,0.25);
-      color: rgba(255,255,255,0.75);
-      padding: 0.45rem 1.1rem; border-radius: 24px;
-      font-size: 0.83rem; cursor: pointer; transition: all 0.2s;
-    }
-    .theme-pill:hover {
-      background: rgba(201,168,76,0.15);
-      border-color: var(--gold); color: var(--gold-soft);
-    }
+    .about-inner h2 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 400; color: var(--ink); margin-bottom: 1rem; }
+    .about-inner p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.9; margin-bottom: 1rem; }
+    .about-quote { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.1rem; color: var(--cosmos); margin-top: 1.5rem; border-left: 2px solid var(--gold); padding-left: 1.2rem; text-align: left; }
 
     /* FOOTER */
-    footer {
-      background: var(--ink); text-align: center;
-      padding: 2rem; color: rgba(255,255,255,0.3);
-      font-size: 0.78rem; letter-spacing: 0.04em;
-    }
+    footer { background: var(--ink); text-align: center; padding: 2rem; color: rgba(255,255,255,0.3); font-size: 0.78rem; letter-spacing: 0.04em; }
     footer span { color: var(--gold); }
     footer a { color: rgba(201,168,76,0.6); text-decoration: none; }
     footer a:hover { color: var(--gold); }
 
-    /* RESPONSIVE */
     @media (max-width: 600px) {
       .blog-grid { grid-template-columns: 1fr; }
       .featured-card { padding: 2rem 1.5rem; }
       nav { padding: 0 1rem; }
       .nav-links { gap: 1rem; }
       .nav-links a { font-size: 0.75rem; }
+      .modal-body { padding: 1.5rem; }
+      .modal-header { padding: 2rem 1.5rem 1.5rem; }
+      .modal-footer { padding: 1.2rem 1.5rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <a class="nav-brand" href="#">&#10022; Spiritual Scientists</a>
-    <div class="nav-links">
-      <a href="#posts">Posts</a>
-      <a href="#themes">Themes</a>
-      <a href="#about">About</a>
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="#">&#10022; Spiritual Scientists</a>
+  <div class="nav-links">
+    <a href="#posts">Posts</a>
+    <a href="#themes">Themes</a>
+    <a href="#about">About</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-label">Where Inquiry Meets Awakening</div>
+  <h1>For people who <em>meditate</em><br>and read research papers</h1>
+  <p class="hero-sub">Exploring the space where quantum physics meets ancient wisdom, where neuroscience papers read like meditation manuals, and the oldest questions are still the most alive.</p>
+  <p class="hero-tagline">Science asks how. Spirituality asks why. We ask both.</p>
+  <div class="hero-divider"></div>
+</section>
+
+<!-- POSTS -->
+<section id="posts">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Latest Reflection</span>
+      <h2>Featured Post</h2>
     </div>
-  </nav>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-label">Where Inquiry Meets Awakening</div>
-    <h1>For people who <em>meditate</em><br>and read research papers</h1>
-    <p class="hero-sub">Exploring the space where quantum physics meets ancient wisdom, where a neuroscience paper reads like a meditation manual, and where the oldest questions are still the most alive.</p>
-    <p class="hero-tagline">Science asks how. Spirituality asks why. We ask both.</p>
-    <div class="hero-divider"></div>
-  </section>
-
-  <!-- POSTS SECTION -->
-  <section id="posts">
-    <div class="container">
-
-      <div class="section-head">
-        <span class="eyebrow">Latest Reflection</span>
-        <h2>Featured Post</h2>
-      </div>
-
-      <!-- FEATURED -->
-      <div class="featured-card">
-        <span class="featured-tag">&#9733; Featured</span>
-        <p class="qa-question">After death, something may eventually happen subjectively &#8212; but is experience impersonal?</p>
-        <p class="qa-answer">
-          Yajnavalkya, the great sage of the Brihadaranyaka Upanishad, was about to leave home. His wife Maitreyi stopped him with one question: "If the whole earth filled with wealth were mine, would I be immortal?" He said simply: "No." Then she asked the question that changed everything &#8212; "Then what shall I do with wealth? Teach me what you know." He said: "As a lump of salt has neither inside nor outside and is altogether a homogeneous mass of taste &#8212; even so the Self has neither inside nor outside. It is altogether a homogeneous mass of Intelligence." Krishnamurti said the same thing differently: the ending of the self is not death &#8212; it is the beginning of something entirely new. The salt does not grieve becoming the ocean. It is only the idea of being a lump that grieves.
-        </p>
-        <div class="qa-meta">
-          <span class="qa-date">June 2025</span>
-          <span class="qa-tag-pill">Consciousness</span>
-          <span class="qa-tag-pill">Philosophy</span>
-          <span class="qa-tag-pill">Vedanta</span>
-        </div>
-      </div>
-
-      <!-- FILTER -->
-      <div class="filter-bar">
-        <button class="filter-btn active" data-filter="all">All Posts</button>
-        <button class="filter-btn" data-filter="science-soul">Science &amp; Soul</button>
-        <button class="filter-btn" data-filter="vedic-wisdom">Vedic Wisdom</button>
-        <button class="filter-btn" data-filter="consciousness">Consciousness</button>
-        <button class="filter-btn" data-filter="philosophy">Philosophy</button>
-        <button class="filter-btn" data-filter="personal">Personal Insight</button>
-      </div>
-
-      <!-- BLOG GRID -->
-      <div class="blog-grid" id="blogGrid">
-
-        <div class="blog-card" data-category="science-soul">
-          <div class="card-category">Science &amp; Soul</div>
-          <p class="card-q">What does quantum physics actually say about consciousness?</p>
-          <p class="card-preview">The observer effect in quantum mechanics raises a question that won't sit quietly: does the act of observation change what is observed? Planck said in 1931 &#8212; "I regard consciousness as fundamental. I regard matter as derivative from consciousness." This is not mysticism. It is the father of quantum theory.</p>
-          <div class="card-footer">
-            <span class="card-date">April 2025</span>
-            <a href="https://scientificspirituals.quora.com" target="_blank" class="read-more">Read on Quora &#8594;</a>
-          </div>
-        </div>
-
-        <div class="blog-card" data-category="science-soul">
-          <div class="card-category">Science &amp; Soul</div>
-          <p class="card-q">Why did ancient monks know what neuroscientists just discovered?</p>
-          <p class="card-preview">In September 2002, Tibetan monk Mingyur Rinpoche walked into a brain lab in Wisconsin. When scientists studied his brain alongside 20 other long-term meditators, they found elevated gamma oscillations not just during meditation &#8212; but in their everyday baseline brain activity. The monks had been describing this state for 2,500 years.</p>
-          <div class="card-footer">
-            <span class="card-date">April 2025</span>
-            <a href="https://scientificspirituals.quora.com" target="_blank" class="read-more">Read on Quora &#8594;</a>
-          </div>
-        </div>
-
-        <div class="blog-card" data-category="science-soul">
-          <div class="card-category">Science &amp; Soul</div>
-          <p class="card-q">What is the science of prayer &#8212; and does it actually work?</p>
-          <p class="card-preview">Harvard's Ted Kaptchuk found that patients who knew they were taking placebos reported twice the symptom relief of the no-treatment group. The Princeton PEAR lab ran over 1,000 experimental series over 12 years and found statistically significant deviations from chance when humans intended to influence random outputs. We are not separate from what we observe.</p>
-          <div class="card-footer">
-            <span class="card-date">April 2025</span>
-            <a href="https://scientificspirituals.quora.com" target="_blank" class="read-more">Read on Quora &#8594;</a>
-          </div>
-        </div>
-
-        <div class="blog-card" data-category="science-soul">
-          <div class="card-category">Science &amp; Soul</div>
-          <p class="card-q">What happens to the brain when you chant a mantra?</p>
-          <p class="card-preview">An fMRI study found significant bilateral deactivation of the amygdala, hippocampus, and orbitofrontal cortex during OM chanting &#8212; while chanting "ssss" produced no effect. Researchers noted this pattern mirrored vagus nerve stimulation used medically for depression and epilepsy. Ancient sages prescribed what modern medicine is only discovering.</p>
-          <div class="card-footer">
-            <span class="card-date">April 2025</span>
-            <a href="https://scientificspirituals.quora.com" target="_blank" class="read-more">Read on Quora &#8594;</a>
-          </div>
-        </div>
-
-        <div class="blog-card" data-category="consciousness">
-          <div class="card-category">Consciousness</div>
-          <p class="card-q">Near-death experiences: what does the science actually say?</p>
-          <p class="card-preview">The AWARE II study followed 567 cardiac arrest patients across the US and UK. Survivors reported powerful, lucid experiences &#8212; separation from the body, life reviews, encounters with light &#8212; distinct from hallucinations or dreams. EEG recordings showed unexpected brain electrical activity long into CPR. The data is real. The explanation is still open.</p>
-          <div class="card-footer">
-            <span class="card-date">May 2025</span>
-            <a href="https://scientificspirituals.quora.com" target="_blank" class="read-more">Read on Quora &#8594;</a>
-          </div>
-        </div>
-
-        <div class="blog-card" data-category="consciousness">
-          <div class="card-category">Consciousness</div>
-          <p class="card-q">If we are made of atoms that never touch, why do we feel the touch of others?</p>
-          <p class="card-preview">What we perceive as touch is the brain's interpretation of electromagnetic forces between electron clouds &#8212; atoms never actually meet. The Vedas called this Maya: not illusion, but constructed reality. Ma means "to construct." The separation you feel is real as experience. It is not real as substance. Not two things meeting &#8212; one thing, remembering.</p>
-          <div class="card-footer">
-            <span class="card-date">May 2025</span>
-            <a href="https://scientificspirituals.quora.com" target="_blank" class="read-more">Read on Quora &#8594;</a>
-          </div>
-        </div>
-
-        <div class="blog-card" data-category="philosophy">
-          <div class="card-category">Philosophy</div>
-          <p class="card-q">What would one achieve by choiceless awareness, as Krishnamurti said?</p>
-          <p class="card-preview">Krishnamurti was precise: choiceless awareness is not a technique. It is a living presence. "Awareness is the silent and choiceless observation of what is &#8212; in this awareness the problem unrolls itself and therefore is completely understood." The chooser must cease. Not through decision &#8212; through total attentiveness in which the self dissolves into attention.</p>
-          <div class="card-footer">
-            <span class="card-date">May 2025</span>
-            <a href="https://scientificspirituals.quora.com" target="_blank" class="read-more">Read on Quora &#8594;</a>
-          </div>
-        </div>
-
-        <div class="blog-card" data-category="consciousness">
-          <div class="card-category">Consciousness</div>
-          <p class="card-q">Can bigger things remain invisible to human eyes? What does science say?</p>
-          <p class="card-preview">Everything ever seen &#8212; every star, mountain, face, and galaxy &#8212; makes up less than 5% of the universe. Dark matter makes up 27% of everything and is invisible to every instrument humanity has built. Dark energy is the force driving the accelerated expansion of the cosmos. The visible is the minority report. The Vedas called the invisible Akasha &#8212; the ground of all form.</p>
-          <div class="card-footer">
-            <span class="card-date">May 2025</span>
-            <a href="https://scientificspirituals.quora.com" target="_blank" class="read-more">Read on Quora &#8594;</a>
-          </div>
-        </div>
-
-        <div class="blog-card" data-category="personal">
-          <div class="card-category">Personal Insight</div>
-          <p class="card-q">How do you find your true self when you are losing your way?</p>
-          <p class="card-preview">Nachiketa was a young boy who walked into the house of Yama &#8212; death itself &#8212; and refused every offer of gold, kingdoms, and long life. He wanted only one thing: to know who he truly was. Yama described the Atman using a chariot: the body is the chariot, senses the horses, mind the reins, intellect the charioteer. But you are the one riding. You are not what moves. You are what witnesses.</p>
-          <div class="card-footer">
-            <span class="card-date">May 2025</span>
-            <a href="https://scientificspirituals.quora.com" target="_blank" class="read-more">Read on Quora &#8594;</a>
-          </div>
-        </div>
-
-        <div class="blog-card" data-category="philosophy">
-          <div class="card-category">Philosophy</div>
-          <p class="card-q">Why do I exist in this infinite flow?</p>
-          <p class="card-preview">Quantum physics tells us the observer participates in what is observed. The Bhagavata Purana says creation is Lila &#8212; divine sport, spontaneous and free, the way breathing is natural to us. Freeman Dyson wrote: "The universe in some sense knew we were coming." You are not an accident in the flow. You are the form the universe built for the purpose of waking up.</p>
-          <div class="card-footer">
-            <span class="card-date">May 2025</span>
-            <a href="https://scientificspirituals.quora.com" target="_blank" class="read-more">Read on Quora &#8594;</a>
-          </div>
-        </div>
-
-        <div class="blog-card" data-category="vedic-wisdom">
-          <div class="card-category">Vedic Wisdom</div>
-          <p class="card-q">How do ancient Indian texts explain the origin of time, space and matter?</p>
-          <p class="card-preview">The Nasadiya Sukta of the Rig Veda begins: "Then, there was neither existence nor non-existence." It asks when, why, and through whom the universe came into being &#8212; and concludes that even the gods may not know, for they came after creation. Carl Sagan wrote that Hinduism is the only religion whose time scales correspond to those of modern scientific cosmology &#8212; cycles of 8.64 billion years.</p>
-          <div class="card-footer">
-            <span class="card-date">June 2025</span>
-            <a href="https://scientificspirituals.quora.com" target="_blank" class="read-more">Read on Quora &#8594;</a>
-          </div>
-        </div>
-
-        <div class="blog-card" data-category="vedic-wisdom">
-          <div class="card-category">Vedic Wisdom</div>
-          <p class="card-q">Did the Puranas describe time dilation 2,500 years before Einstein?</p>
-          <p class="card-preview">King Kakudmi and his daughter Revati visited Brahmaloka for what felt like a brief audience with Brahma. When they returned, 27 Chaturyugas had passed on Earth &#8212; over 116 million years. King Muchukunda slept in a cave while ages turned, and woke in a world where his entire dynasty had dissolved into history. The Bhagavata Purana was describing gravitational time dilation in story form.</p>
-          <div class="card-footer">
-            <span class="card-date">June 2025</span>
-            <a href="https://scientificspirituals.quora.com" target="_blank" class="read-more">Read on Quora &#8594;</a>
-          </div>
-        </div>
-
+    <!-- FEATURED -->
+    <div class="featured-card" onclick="openModal(11)">
+      <span class="featured-tag">&#9733; Featured</span>
+      <p class="qa-question">After death, something may eventually happen subjectively &#8212; but is experience impersonal?</p>
+      <p class="qa-answer">Yajnavalkya, the great sage of the Brihadaranyaka Upanishad, was about to leave home forever. His wife Maitreyi stopped him with one question: "If the whole earth filled with wealth were mine, would I be immortal?" He said simply: No. Then she asked the question that changed everything &#8212; teach me what you know. What he told her next has echoed across 3,000 years and lands with full force on the question you are asking right now...</p>
+      <span class="read-featured">Read full post &#8594;</span>
+      <div class="qa-meta">
+        <span class="qa-date">June 2025</span>
+        <span class="qa-tag-pill">Consciousness</span>
+        <span class="qa-tag-pill">Vedanta</span>
+        <span class="qa-tag-pill">Philosophy</span>
       </div>
     </div>
-  </section>
 
-  <!-- THEMES -->
-  <section class="themes" id="themes">
-    <span class="themes-label">The Themes We Explore</span>
-    <div class="themes-pills">
-      <span class="theme-pill">Consciousness</span>
-      <span class="theme-pill">Quantum Reality</span>
-      <span class="theme-pill">Vedic Wisdom</span>
-      <span class="theme-pill">Neuroscience &amp; Meditation</span>
-      <span class="theme-pill">Death &amp; Beyond</span>
-      <span class="theme-pill">Ancient Texts</span>
-      <span class="theme-pill">Philosophy of Mind</span>
-      <span class="theme-pill">Time &amp; Relativity</span>
-      <span class="theme-pill">Prayer &amp; Science</span>
-      <span class="theme-pill">The Self</span>
+    <!-- FILTER -->
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All Posts</button>
+      <button class="filter-btn" data-filter="science-soul">Science &amp; Soul</button>
+      <button class="filter-btn" data-filter="vedic">Vedic Wisdom</button>
+      <button class="filter-btn" data-filter="consciousness">Consciousness</button>
+      <button class="filter-btn" data-filter="philosophy">Philosophy</button>
+      <button class="filter-btn" data-filter="personal">Personal Insight</button>
     </div>
-  </section>
 
-  <!-- ABOUT -->
-  <section class="about" id="about">
-    <div class="about-inner">
-      <div class="about-symbol">&#9789; &#10022; &#9790;</div>
-      <h2>About Spiritual Scientists</h2>
-      <p>
-        You have felt it. That moment when a scientific discovery sounds suspiciously like something a monk said 3,000 years ago. When quantum physics starts to sound like Vedanta. When a neuroscience paper reads like a meditation manual.
-      </p>
-      <p>
-        Spiritual Scientists is for people who refuse to choose sides. We do not ask you to abandon reason for faith &#8212; or faith for reason. We explore the place where they collide, overlap, and sometimes finish each other's sentences.
-      </p>
-      <p>
-        Written by <strong>Shashank</strong> &#8212; a seeker before a writer, exploring the space where science meets the soul.
-      </p>
-      <div class="about-quote">
-        "Seeker before writer. Exploring the space where science meets the soul, where ancient wisdom whispers through modern discoveries. Still finding my way &#8212; one question at a time."
+    <!-- GRID -->
+    <div class="blog-grid" id="blogGrid">
+
+      <div class="blog-card" data-category="science-soul" onclick="openModal(0)">
+        <div class="card-category">Science &amp; Soul</div>
+        <p class="card-q">What does quantum physics actually say about consciousness?</p>
+        <p class="card-preview">Planck said in 1931 &#8212; "I regard consciousness as fundamental. I regard matter as derivative from consciousness." This is not mysticism. It is the father of quantum theory speaking at the edge of what science had discovered.</p>
+        <div class="card-footer"><span class="card-date">April 2025</span><span class="card-read">Read &#8594;</span></div>
+      </div>
+
+      <div class="blog-card" data-category="science-soul" onclick="openModal(1)">
+        <div class="card-category">Science &amp; Soul</div>
+        <p class="card-q">Why did ancient monks know what neuroscientists just discovered?</p>
+        <p class="card-preview">In September 2002, Tibetan monk Mingyur Rinpoche walked into a brain lab in Wisconsin. When scientists saw the results, they found elevated gamma oscillations not just during meditation but in everyday baseline brain activity. The monks had been describing this state for 2,500 years.</p>
+        <div class="card-footer"><span class="card-date">April 2025</span><span class="card-read">Read &#8594;</span></div>
+      </div>
+
+      <div class="blog-card" data-category="science-soul" onclick="openModal(2)">
+        <div class="card-category">Science &amp; Soul</div>
+        <p class="card-q">What is the science of prayer &#8212; and does it actually work?</p>
+        <p class="card-preview">Harvard's Ted Kaptchuk found that patients who knew they were taking placebos reported twice the symptom relief of the no-treatment group. The Princeton PEAR lab ran over 1,000 experimental series and found statistically significant deviations when humans intended to influence random outputs.</p>
+        <div class="card-footer"><span class="card-date">April 2025</span><span class="card-read">Read &#8594;</span></div>
+      </div>
+
+      <div class="blog-card" data-category="science-soul" onclick="openModal(3)">
+        <div class="card-category">Science &amp; Soul</div>
+        <p class="card-q">What happens to the brain when you chant a mantra?</p>
+        <p class="card-preview">An fMRI study found significant bilateral deactivation of the amygdala during OM chanting. Researchers noted this mirrored vagus nerve stimulation used medically for depression and epilepsy. Ancient sages prescribed what modern medicine is only discovering.</p>
+        <div class="card-footer"><span class="card-date">April 2025</span><span class="card-read">Read &#8594;</span></div>
+      </div>
+
+      <div class="blog-card" data-category="consciousness" onclick="openModal(4)">
+        <div class="card-category">Consciousness</div>
+        <p class="card-q">Near-death experiences: what does the science actually say?</p>
+        <p class="card-preview">The AWARE II study followed 567 cardiac arrest patients. Survivors reported powerful, lucid experiences distinct from hallucinations or dreams. EEG recordings showed unexpected brain electrical activity long into CPR. The data is real. The explanation is still open.</p>
+        <div class="card-footer"><span class="card-date">May 2025</span><span class="card-read">Read &#8594;</span></div>
+      </div>
+
+      <div class="blog-card" data-category="consciousness" onclick="openModal(5)">
+        <div class="card-category">Consciousness</div>
+        <p class="card-q">If we are made of atoms that never touch, why do we feel the touch of others?</p>
+        <p class="card-preview">What we perceive as touch is the brain interpreting electromagnetic forces between electron clouds &#8212; atoms never actually meet. The Vedas called this Maya. Not two things meeting &#8212; one thing, remembering itself.</p>
+        <div class="card-footer"><span class="card-date">May 2025</span><span class="card-read">Read &#8594;</span></div>
+      </div>
+
+      <div class="blog-card" data-category="philosophy" onclick="openModal(6)">
+        <div class="card-category">Philosophy</div>
+        <p class="card-q">What would one achieve by choiceless awareness, as Krishnamurti said?</p>
+        <p class="card-preview">Krishnamurti was precise: choiceless awareness is not a technique. It is a living presence. The chooser must cease &#8212; not through decision, but through total attentiveness in which the self dissolves into pure attention itself.</p>
+        <div class="card-footer"><span class="card-date">May 2025</span><span class="card-read">Read &#8594;</span></div>
+      </div>
+
+      <div class="blog-card" data-category="consciousness" onclick="openModal(7)">
+        <div class="card-category">Consciousness</div>
+        <p class="card-q">Can bigger things remain invisible to human eyes?</p>
+        <p class="card-preview">Everything ever seen &#8212; every star, mountain, and face &#8212; makes up less than 5% of the universe. Dark matter and dark energy constitute the rest, invisible to every instrument humanity has built. The visible is the minority report.</p>
+        <div class="card-footer"><span class="card-date">May 2025</span><span class="card-read">Read &#8594;</span></div>
+      </div>
+
+      <div class="blog-card" data-category="personal" onclick="openModal(8)">
+        <div class="card-category">Personal Insight</div>
+        <p class="card-q">How do you find your true self when you are losing your way?</p>
+        <p class="card-preview">Nachiketa was a boy who walked into the house of Yama &#8212; death itself &#8212; and refused every offer of gold, kingdoms, and long life. He wanted only one thing: to know who he truly was. What Yama told him next is the oldest answer to your question.</p>
+        <div class="card-footer"><span class="card-date">May 2025</span><span class="card-read">Read &#8594;</span></div>
+      </div>
+
+      <div class="blog-card" data-category="philosophy" onclick="openModal(9)">
+        <div class="card-category">Philosophy</div>
+        <p class="card-q">Why do I exist in this infinite flow?</p>
+        <p class="card-preview">The Bhagavata Purana says creation is Lila &#8212; divine sport, spontaneous and free. Freeman Dyson wrote: "The universe in some sense knew we were coming." You are not an accident in the flow. You are the form the universe built for the purpose of waking up.</p>
+        <div class="card-footer"><span class="card-date">May 2025</span><span class="card-read">Read &#8594;</span></div>
+      </div>
+
+      <div class="blog-card" data-category="vedic" onclick="openModal(10)">
+        <div class="card-category">Vedic Wisdom</div>
+        <p class="card-q">How do ancient Indian texts explain the origin of time, space and matter?</p>
+        <p class="card-preview">The Nasadiya Sukta of the Rig Veda begins: "Then, there was neither existence nor non-existence." Carl Sagan wrote that Hinduism is the only religion whose time scales correspond to those of modern scientific cosmology &#8212; cycles of 8.64 billion years.</p>
+        <div class="card-footer"><span class="card-date">June 2025</span><span class="card-read">Read &#8594;</span></div>
+      </div>
+
+      <div class="blog-card" data-category="vedic" onclick="openModal(11)">
+        <div class="card-category">Vedic Wisdom</div>
+        <p class="card-q">Did the Puranas describe time dilation 2,500 years before Einstein?</p>
+        <p class="card-preview">King Kakudmi visited Brahmaloka for what felt like a brief audience. When he returned, over 116 million years had passed on Earth. The Bhagavata Purana was describing gravitational time dilation in the language of story.</p>
+        <div class="card-footer"><span class="card-date">June 2025</span><span class="card-read">Read &#8594;</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- THEMES -->
+<section class="themes" id="themes">
+  <span class="themes-label">The Themes We Explore</span>
+  <div class="themes-pills">
+    <span class="theme-pill">Consciousness</span>
+    <span class="theme-pill">Quantum Reality</span>
+    <span class="theme-pill">Vedic Wisdom</span>
+    <span class="theme-pill">Neuroscience &amp; Meditation</span>
+    <span class="theme-pill">Death &amp; Beyond</span>
+    <span class="theme-pill">Ancient Texts</span>
+    <span class="theme-pill">Philosophy of Mind</span>
+    <span class="theme-pill">Time &amp; Relativity</span>
+    <span class="theme-pill">Prayer &amp; Science</span>
+    <span class="theme-pill">The Self</span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-symbol">&#9789; &#10022; &#9790;</div>
+    <h2>About Spiritual Scientists</h2>
+    <p>You have felt it. That moment when a scientific discovery sounds suspiciously like something a monk said 3,000 years ago. When quantum physics starts to sound like Vedanta. When a neuroscience paper reads like a meditation manual.</p>
+    <p>Spiritual Scientists is for people who refuse to choose sides. We do not ask you to abandon reason for faith &#8212; or faith for reason. We explore the place where they collide, overlap, and sometimes finish each other's sentences.</p>
+    <p>Written by <strong>Shashank</strong> &#8212; a seeker before a writer.</p>
+    <div class="about-quote">"Science asks how. Spirituality asks why. We ask both."</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>&#10022; <span>Spiritual Scientists</span> &nbsp;&middot;&nbsp; <a href="https://scientificspirituals.quora.com" target="_blank">Also on Quora</a> &nbsp;&middot;&nbsp; All questions welcome. All answers provisional.</p>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="handleOverlayClick(event)">
+  <div class="modal-box" id="modalBox">
+    <div class="modal-header">
+      <button class="modal-close" onclick="closeModal()">&#10005;</button>
+      <span class="modal-category" id="mCategory"></span>
+      <h2 class="modal-title" id="mTitle"></h2>
+      <div class="modal-meta" id="mMeta"></div>
+    </div>
+    <div class="modal-body" id="mBody"></div>
+    <div class="modal-footer">
+      <a href="https://scientificspirituals.quora.com" target="_blank" class="quora-link">&#8599; Also on Quora Space</a>
+      <div class="modal-nav">
+        <button onclick="prevPost()">&#8592; Prev</button>
+        <button onclick="nextPost()">Next &#8594;</button>
       </div>
     </div>
-  </section>
+  </div>
+</div>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>&#10022; <span>Spiritual Scientists</span> &nbsp;&middot;&nbsp; <a href="https://scientificspirituals.quora.com" target="_blank">Read full posts on Quora</a> &nbsp;&middot;&nbsp; All questions welcome. All answers provisional.</p>
-  </footer>
+<script>
+var currentPost = 0;
 
-  <script>
-    // Filter functionality
-    var filterBtns = document.querySelectorAll('.filter-btn');
-    var cards = document.querySelectorAll('.blog-card');
+var posts = [
+  {
+    category: "Science & Soul",
+    title: "What does quantum physics actually say about consciousness?",
+    date: "April 2025",
+    tags: ["Quantum Physics", "Consciousness", "Science & Soul"],
+    body: `
+      <p>There is a question that sits at the edge of everything modern physics has built &#8212; and most scientists prefer not to look directly at it. It is this: does consciousness participate in the universe, or merely observe it?</p>
+      <h3>The Observer Effect</h3>
+      <p>In the famous double-slit experiment, particles of light behave differently depending on whether they are observed. When no measurement is made, a photon passes through both slits simultaneously, creating an interference pattern. The moment it is observed, it behaves like a particle and chooses one path. The act of observation collapses possibility into a single reality.</p>
+      <p>This is not philosophy. This is peer-reviewed physics. And it raises a question that the equations alone cannot answer: what counts as an observer?</p>
+      <h3>What Max Planck Actually Said</h3>
+      <blockquote><p>"I regard consciousness as fundamental. I regard matter as derivative from consciousness. We cannot get behind consciousness."</p></blockquote>
+      <p>This was Max Planck &#8212; the father of quantum theory &#8212; speaking in 1931. Not a mystic. Not a philosopher. The physicist whose work forms the foundation of everything from semiconductors to MRI machines.</p>
+      <h3>Orch OR: The Controversial Frontier</h3>
+      <p>Physicist Roger Penrose and anaesthesiologist Stuart Hameroff proposed the Orchestrated Objective Reduction theory &#8212; that consciousness originates at the quantum level inside neurons, within structures called microtubules. The theory remains contested and has not achieved mainstream acceptance. But the fact that serious scientists are asking whether quantum processes underlie awareness tells you something important: the question is no longer considered fringe.</p>
+      <h3>What the Vedas Said First</h3>
+      <p>The Mandukya Upanishad opens with: "All this is Brahman. This self is Brahman." Ancient Indian philosophy held that consciousness is not produced by matter &#8212; it is the ground from which matter emerges. The observer is not separate from what is observed. They are the same thing, looking at itself.</p>
+      <p>What quantum physics is circling toward with mathematics, the Vedas described with metaphor thousands of years earlier. Whether this is convergence or coincidence is the question Spiritual Scientists was built to sit with.</p>
+      <h3>A Question to Carry</h3>
+      <p>If the act of observation changes what is observed &#8212; and you are always observing &#8212; what are you doing to reality right now, simply by being aware of it?</p>
+    `
+  },
+  {
+    category: "Science & Soul",
+    title: "Why did ancient monks know what neuroscientists just discovered?",
+    date: "April 2025",
+    tags: ["Neuroscience", "Meditation", "Science & Soul"],
+    body: `
+      <p>Imagine a robed monk walking into a neuroscience laboratory. He has spent decades meditating in the foothills of the Himalayas. Scientists attach electrodes to his head, slide him into a brain scanner, and ask him to meditate. What happens next stunned the researchers.</p>
+      <h3>The Wisconsin Experiments</h3>
+      <p>In September 2002, Tibetan monk Mingyur Rinpoche travelled from his monastery near Kathmandu to the University of Wisconsin. He was not alone &#8212; 21 long-term meditators participated in total, with an average of 34,000 hours of practice each. When neuroscientist Richard Davidson's team saw the EEG readings, they were astonished. The monks showed elevated gamma oscillations &#8212; the brain frequency associated with heightened awareness and integration of thought &#8212; not just during meditation, but as their normal everyday baseline.</p>
+      <blockquote><p>Their resting brain state was what most people only glimpse in peak moments of clarity.</p></blockquote>
+      <h3>Harvard Proves the Brain Changes</h3>
+      <p>Harvard's Sara Lazar found that just eight weeks of mindfulness practice &#8212; averaging 27 minutes per day &#8212; produced measurable structural brain changes. The hippocampus grew denser with grey matter. The amygdala, the brain's fear and stress centre, shrank. The brain had physically changed. Meditators had been reporting these inner shifts for millennia. Now there was an MRI to confirm it.</p>
+      <h3>The Same Thing, Different Language</h3>
+      <p>The Yoga Sutras of Patanjali, written roughly 2,000 years ago, describe a state called Samadhi &#8212; a condition of unified awareness in which the distinction between observer and observed dissolves. Davidson's research describes something remarkably similar: a brain state in which default-mode network chatter falls silent and awareness becomes spacious and undivided.</p>
+      <p>One tradition called it enlightenment. The other calls it neural coherence. They may be pointing at the same room from different doors.</p>
+      <h3>What This Means for You</h3>
+      <p>You do not need 34,000 hours. The Harvard study used beginners with eight weeks of practice. The monks simply confirm what is possible at the far end of the spectrum. The door is open for anyone willing to sit quietly and notice what is already there.</p>
+    `
+  },
+  {
+    category: "Science & Soul",
+    title: "What is the science of prayer &#8212; and does it actually work?",
+    date: "April 2025",
+    tags: ["Prayer", "Science", "Consciousness"],
+    body: `
+      <p>I will be honest: I was a sceptic. The idea that speaking words into silence could change anything beyond my own psychology seemed, at best, wishful. Then I started reading the research.</p>
+      <h3>The Princeton PEAR Experiments</h3>
+      <p>Over 12 years, Princeton's Engineering Anomalies Research lab ran more than 1,000 experimental series. Human operators attempted to mentally influence random event generators &#8212; machines producing truly random outputs. The results showed statistically significant deviations from chance. Small deviations &#8212; but consistent, replicable, and peer-reviewed. The replication rate across independent labs was uneven, which means we cannot call this settled science. But we also cannot dismiss 12 years of careful data.</p>
+      <h3>The Harvard Placebo Discovery</h3>
+      <p>Ted Kaptchuk at Harvard ran a study where patients with irritable bowel syndrome were openly told they were receiving sugar pills &#8212; placebos with no active ingredient. They were told this clearly and honestly. And yet they reported twice the symptom improvement of the group that received no treatment. The body responded to something. Not the pill. Something else &#8212; expectation, intention, attention.</p>
+      <blockquote><p>If the mind can heal the body with a pill it knows is empty, what is the mind actually doing when it prays?</p></blockquote>
+      <h3>What This Has to Do with Prayer</h3>
+      <p>Prayer, at its core, is directed intention held with feeling. The PEAR data suggests intention has some measurable relationship with physical reality. The placebo research suggests the mind participates in healing in ways we do not yet fully understand. Neither proves prayer works in the way religious traditions describe. But both suggest the sceptic's dismissal is premature.</p>
+      <h3>The Honest Position</h3>
+      <p>The most honest position here is not belief or disbelief. It is this: we do not yet understand the relationship between consciousness and physical reality well enough to rule anything out. That is not mysticism. That is scientific humility. And sometimes, humility is where the most interesting questions begin.</p>
+    `
+  },
+  {
+    category: "Science & Soul",
+    title: "What happens to the brain when you chant a mantra?",
+    date: "April 2025",
+    tags: ["Mantras", "Neuroscience", "Brain"],
+    body: `
+      <p>For thousands of years, humans have chanted. In Sanskrit temples, Tibetan monasteries, Sufi circles, and Gregorian cathedrals. The forms differ. The phenomenon is universal. Now neuroscience has started to explain why.</p>
+      <h3>What the fMRI Found</h3>
+      <p>In a landmark study, participants chanted the sound OM while inside an fMRI scanner. The researchers found significant bilateral deactivation of the amygdala &#8212; the brain's threat-detection centre &#8212; along with the hippocampus, anterior cingulate, and orbitofrontal cortex. The control group, who simply pronounced "ssss," showed no such deactivation in any of these regions.</p>
+      <blockquote><p>OM chanting specifically produced a pattern of neural quiet that the researchers compared to something remarkable.</p></blockquote>
+      <h3>The Vagus Nerve Connection</h3>
+      <p>The researchers noted that the deactivation pattern mirrored what is observed with vagus nerve stimulation &#8212; a medical treatment used for severe depression and epilepsy where electrodes are surgically implanted to stimulate the vagus nerve directly. The ancient sages appear to have found a sound-based method of achieving the same neurological result without surgery, without electrodes, and without a clinic.</p>
+      <h3>The Brainwave Evidence</h3>
+      <p>EEG studies of chanting practitioners show consistent increases in alpha and theta brainwave activity &#8212; states associated with deep relaxation, creativity, and meditative awareness. Beta waves, associated with anxious or scattered thinking, decrease. Cortisol levels &#8212; the primary stress hormone &#8212; drop measurably after sustained chanting practice.</p>
+      <h3>Four Mantras Worth Knowing</h3>
+      <p><strong>OM (Aum):</strong> The primordial sound. Said to be the vibration from which all creation emerges. Now proven to deactivate the amygdala.</p>
+      <p><strong>So Hum:</strong> "I am that." Synchronised with the breath &#8212; So on the inhale, Hum on the exhale. Used for identity dissolution and present-moment awareness.</p>
+      <p><strong>Om Namah Shivaya:</strong> Surrender to the self that is beyond the personal self. A mantra of letting go.</p>
+      <p><strong>Gayatri Mantra:</strong> A prayer to the light of consciousness, asking it to illuminate the mind. Chanted at sunrise for millennia across the subcontinent.</p>
+      <h3>Try This</h3>
+      <p>Sit quietly. Close your eyes. Take three deep breaths. Then simply chant the sound OM slowly, letting the vibration last for the full length of your exhale. Do this seven times. Notice what happens to the noise inside your head. The monks already know. Now you have the fMRI to explain why.</p>
+    `
+  },
+  {
+    category: "Consciousness",
+    title: "Near-death experiences: what does the science actually say?",
+    date: "May 2025",
+    tags: ["NDE", "Consciousness", "Science"],
+    body: `
+      <p>Over 17 million Americans report having had a near-death experience. Across cultures and centuries, the accounts are remarkably consistent: a sensation of leaving the body, moving through a tunnel toward light, encountering a life review, feeling profound peace, and often encountering presences. The question is not whether these experiences happen. They clearly do. The question is what they mean.</p>
+      <h3>The AWARE II Study</h3>
+      <p>The most rigorous scientific investigation of NDEs to date followed 567 cardiac arrest patients across the United States and United Kingdom. Those who survived and could be interviewed described powerful, lucid experiences &#8212; including out-of-body perceptions, life reviews, and encounters with light &#8212; that were qualitatively distinct from hallucinations, oxygen deprivation effects, or dreams. The experiences were characterised by clarity rather than confusion.</p>
+      <p>Critically, EEG recordings from some patients showed unexpected electrical activity in the brain several minutes into CPR &#8212; at a point when the brain should have been profoundly compromised. Something was happening neurologically that the standard model does not easily explain.</p>
+      <h3>The Cross-Cultural Consistency</h3>
+      <p>Dutch cardiologist Pim van Lommel published a landmark NDE study in The Lancet &#8212; one of the world's most prestigious medical journals. His finding that deserves special attention: the core NDE structure appears across cultures. Hindu patients see different figures than Christian patients. The cultural clothing varies. But the underlying architecture &#8212; the tunnel, the light, the life review, the sense of expanded consciousness &#8212; remains remarkably stable across traditions, centuries, and continents.</p>
+      <blockquote><p>If these experiences were simply the brain generating random content under stress, we would not expect such cross-cultural consistency.</p></blockquote>
+      <h3>What Science Cannot Yet Explain</h3>
+      <p>Several NDE cases involve patients correctly describing events that occurred while they were clinically unconscious &#8212; conversations in other rooms, objects placed on high shelves that only someone floating near the ceiling could see. These veridical accounts have not been fully explained by current neuroscience. They are not proof of an afterlife. They are, however, unresolved data points that the materialist model has not yet accounted for.</p>
+      <h3>The Open Question</h3>
+      <p>Is consciousness produced by the brain, or does the brain receive it &#8212; the way a radio receives a signal without generating the music? The NDE literature does not answer this. But it makes the question harder to dismiss than most people realise. The data is real. What it means is still the most interesting open question in science.</p>
+    `
+  },
+  {
+    category: "Consciousness",
+    title: "If we are made of atoms that never touch, why do we feel the touch of others?",
+    date: "May 2025",
+    tags: ["Maya", "Quantum Physics", "Vedanta"],
+    body: `
+      <p>Here is a fact that should stop you mid-sentence: atoms never actually touch each other. Not one atom in your hand is in direct contact with any atom in the chair you are sitting on. What keeps them apart is electromagnetism &#8212; the repulsive force between electron clouds. What your brain interprets as solid contact, as warmth, as the pressure of a held hand, is a field interaction. A conversation between electrons.</p>
+      <h3>The Physics of Apparent Touch</h3>
+      <p>What we perceive as touch is the brain's interpretation of electromagnetic forces between electron clouds at the surfaces of two objects. Beyond electromagnetism, the Pauli Exclusion Principle creates a quantum barrier &#8212; two electrons cannot occupy the same quantum state simultaneously, which produces a strong repulsion that prevents matter from passing through other matter. The solidity of the world is a quantum rule, not a physical fact.</p>
+      <blockquote><p>You have never touched anything. And yet you have felt everything.</p></blockquote>
+      <h3>What the Vedas Called Maya</h3>
+      <p>The Sanskrit word Maya is commonly translated as illusion &#8212; but this is imprecise. Maya comes from the root ma, meaning "to construct." It does not mean the world is not real. It means the world as we perceive it is a construction &#8212; a model assembled by our senses and interpreted by our minds, not a direct encounter with reality as it is.</p>
+      <p>The Vedantic teaching is not that touch does not happen. It is that what we call separation is itself a construction. The sense of being a discrete self encountering another discrete self &#8212; this is Maya. Not the feeling. The interpretation of the feeling as evidence of two separate things meeting.</p>
+      <h3>What This Means</h3>
+      <p>If atoms never touch, and the sense of solidity is a quantum rule, and the feeling of contact is a field interaction &#8212; then what happens when you hold someone's hand is not two separate things meeting. It is one continuous field of electromagnetic interaction, at a particular location in space, interpreted by two minds as an encounter.</p>
+      <p>Not two things meeting. One thing &#8212; remembering itself.</p>
+      <p>The salt does not grieve becoming the ocean. It is only the idea of being a separate grain that grieves.</p>
+    `
+  },
+  {
+    category: "Philosophy",
+    title: "What would one achieve by choiceless awareness, as Krishnamurti said?",
+    date: "May 2025",
+    tags: ["Krishnamurti", "Awareness", "Philosophy"],
+    body: `
+      <p>Jiddu Krishnamurti spent six decades refusing to give people what they most wanted from a spiritual teacher: a method. No technique. No practice. No path. This frustrated countless seekers who came to him hoping for a meditation instruction and left with a question they could not put down.</p>
+      <h3>What He Actually Meant</h3>
+      <p>Krishnamurti described choiceless awareness as the silent and choiceless observation of "what is." Not what should be. Not what you want it to be. What is &#8212; exactly as it is &#8212; without the filter of preference, without the commentary of the self that judges and chooses and evaluates.</p>
+      <blockquote><p>"Awareness is the silent and choiceless observation of what is &#8212; in this awareness the problem unrolls itself and therefore is completely understood."</p></blockquote>
+      <p>This is the radical claim: that problems are not solved by choiceless awareness. They dissolve. Because most problems are sustained by the very act of the self trying to resolve them &#8212; the same instrument that created the problem attempting to fix it.</p>
+      <h3>The Paradox of the Chooser</h3>
+      <p>For true choicelessness to arise, Krishnamurti said, the chooser &#8212; the psychological self, the "I" that evaluates and selects &#8212; must cease functioning. Not through decision. Not through practice. Through total attentiveness in which identity dissolves into complete, all-encompassing awareness. The moment you decide to be choicelessly aware, you have introduced a chooser. The whole thing undoes itself.</p>
+      <p>This is why he refused to give techniques. Any technique becomes another project of the self, another thing the ego does to improve itself. What he pointed to was prior to all of that.</p>
+      <h3>Does It Solve the Problems of Life?</h3>
+      <p>Not in the way we usually mean "solve." Choiceless awareness does not pay your bills or repair your relationships. But Krishnamurti pointed to something subtler: that most of what we call our problems are sustained by the narrative the self constructs around them. In the stillness of pure observation, without the self adding its commentary, many apparent problems reveal themselves to be nothing more than the self's relationship to its own thoughts. And in that seeing &#8212; the problem, as Krishnamurti said, unrolls itself.</p>
+      <h3>A Starting Point (Without Calling It a Method)</h3>
+      <p>Sit quietly. Do not try to be aware. Just notice what is actually here &#8212; sound, sensation, the movement of thought. The moment you notice you are commenting on what you observe, simply observe the commenting. No correction. No preference. Just look. Something may shift. Or it may not. Krishnamurti would say: the looking itself is the thing.</p>
+    `
+  },
+  {
+    category: "Consciousness",
+    title: "Can bigger things remain invisible to human eyes?",
+    date: "May 2025",
+    tags: ["Dark Matter", "Perception", "Vedic Wisdom"],
+    body: `
+      <p>We assume that the invisible is always small. Bacteria. Atoms. Quarks. The things too tiny for our eyes to catch. But science has quietly discovered something that overturns this assumption completely: the vast majority of the universe is invisible &#8212; and it is not small. It is immense.</p>
+      <h3>The Limits of Human Vision</h3>
+      <p>The human eye detects electromagnetic radiation within a narrow band &#8212; wavelengths between roughly 380 and 700 nanometres. This is visible light. Outside this band exists ultraviolet radiation, infrared, radio waves, X-rays, gamma rays &#8212; all invisible to us, all physically real, all constantly moving through your body right now as you read this. A bumblebee sees ultraviolet patterns on flowers that are completely hidden from you. A snake detects infrared heat that you cannot perceive. The world as you see it is your sensory system's narrow editorial selection from a much richer broadcast.</p>
+      <h3>The Invisible Majority</h3>
+      <p>Everything ever seen &#8212; every star, mountain, face, and galaxy that any human eye has ever observed &#8212; constitutes less than 5% of the universe. Dark matter makes up approximately 27% of everything that exists. Dark energy constitutes approximately 68%. Both are completely invisible to every instrument humanity has ever built. We cannot see them, detect them with light, or measure them directly. We know they exist only through their effects on what we can see.</p>
+      <blockquote><p>The visible is the minority report. The invisible is the majority of reality.</p></blockquote>
+      <h3>What Akasha Pointed To</h3>
+      <p>The Taittiriya Upanishad describes the origin of creation with a sequence: from the Self came Akasha &#8212; primordial space, the ground of all form. From Akasha came air. From air, fire. From fire, water. From water, earth. Akasha is not empty space in the modern sense. It is the invisible substrate from which visible reality emerges. The ancient framework described an invisible foundational field preceding all matter &#8212; a claim that modern cosmology, with its dark matter and dark energy, is slowly catching up to in its own language.</p>
+      <h3>The Practical Implication</h3>
+      <p>If most of reality is invisible, and your senses show you less than 5% of what exists &#8212; then the question is not whether invisible things exist. The question is: what else is here that you cannot yet perceive? Ancient traditions consistently pointed to levels of reality beyond sensory access. Modern physics has confirmed that such levels exist. What they contain remains the most interesting open question in both science and spirituality.</p>
+    `
+  },
+  {
+    category: "Personal Insight",
+    title: "How do you find your true self when you are losing your way?",
+    date: "May 2025",
+    tags: ["True Self", "Vedanta", "Nachiketa"],
+    body: `
+      <p>There was once a boy named Nachiketa who felt he had lost his way &#8212; not through doubt, but through honesty. His father, performing a ritual, was giving away old and useless cows as charity, cows that could neither eat nor give milk. The young Nachiketa felt something was wrong. He asked his father three times: "To whom will you give me?" His father, irritated, finally said: "I give you to Death."</p>
+      <h3>The Boy Who Walked Toward Death</h3>
+      <p>Nachiketa took this literally. He walked to the house of Yama, the god of death, and waited for three days and three nights without food or water. When Yama returned and found the boy waiting, he was moved. He offered the boy three boons &#8212; three wishes &#8212; as compensation for keeping him waiting.</p>
+      <p>Nachiketa's first two wishes were modest: peace between himself and his father, and the knowledge of a sacred fire ritual. For his third wish, he asked Yama to reveal the secret of what happens after death &#8212; the nature of the self, the Atman.</p>
+      <h3>Yama's Attempt to Bargain</h3>
+      <p>Yama tried everything to avoid answering. He offered Nachiketa kingdoms. Long life. Beautiful companions. Elephants, horses, gold &#8212; "whatever riches your heart desires." Nachiketa refused every offer without hesitation. He said: "All these pleasures pass. Keep them. I want only the knowledge of the self."</p>
+      <blockquote><p>Yama, moved by the boy's clarity, said: "You have rejected what most humans spend their entire lives pursuing. Ask. I will answer."</p></blockquote>
+      <h3>The Chariot of the Self</h3>
+      <p>Yama described the self using a chariot. The body is the chariot. The senses are the horses. The mind is the reins. The intellect is the charioteer. And the Atman &#8212; the true self &#8212; is the one riding. You are not the chariot. You are not the horses. You are not the reins, or even the charioteer. You are the passenger. The witness. The one who is always already there, watching the whole journey unfold.</p>
+      <h3>For You, Right Now</h3>
+      <p>When you feel you are losing your way, you are identifying with the chariot &#8212; the circumstances, the anxieties, the stories about who you are and where you are going. But Nachiketa's story points elsewhere. You are not searching for something foreign or far away. You are searching for what you already are &#8212; the witness that has been watching your entire life unfold, unchanged, unstained, and present throughout every moment of feeling lost.</p>
+      <p>You cannot lose what you are. You can only forget it temporarily. And the forgetting, it turns out, is part of the journey too.</p>
+    `
+  },
+  {
+    category: "Philosophy",
+    title: "Why do I exist in this infinite flow?",
+    date: "May 2025",
+    tags: ["Lila", "Existence", "Quantum"],
+    body: `
+      <p>This question arrives at 3am, in grief, in sudden moments of beauty, in the space after meditation when the noise has settled. Why am I here? Not in the biographical sense &#8212; not what job you should take or which city you should live in. The deeper question: why does something as specific and particular as you exist at all, inside something as vast and indifferent as the universe seems to be?</p>
+      <h3>What Quantum Physics Quietly Suggests</h3>
+      <p>The observer effect in quantum mechanics tells us that the act of observation participates in what is observed. An unobserved particle exists as a probability cloud &#8212; a superposition of all possible states. Observation collapses that cloud into a single specific reality. Without an observer, there is no definite event. The physicist John Wheeler described the universe as a "participatory universe" &#8212; one that requires observers to bring it into being. Freeman Dyson wrote: "The universe in some sense knew we were coming."</p>
+      <blockquote><p>You are not an accident inside an indifferent cosmos. You are the part of the universe that became capable of wondering about itself.</p></blockquote>
+      <h3>What the Bhagavata Purana Says</h3>
+      <p>The Bhagavata Purana describes creation as Lila &#8212; divine sport. Not labour. Not necessity. Not a problem being solved. Spontaneous, joyful, free expression &#8212; the way a child builds a sandcastle not because anything useful will result, but because building is itself the joy. Shankara compared it to a king whose every need is met, who plays &#8212; not to achieve anything, but because play is the nature of abundance. Creation, the Purana says, arises from Bliss, by Bliss, for Bliss.</p>
+      <h3>What Sufism Adds</h3>
+      <p>Rumi wrote: "I was a hidden treasure, and I loved to be known &#8212; so I created the world in order to be known." The tradition of Islamic mysticism holds that existence is the love of the Infinite for the experience of the finite. You exist because the source of all things desired to know itself through something specific, something particular &#8212; through you.</p>
+      <h3>The Answer That Is Not an Answer</h3>
+      <p>Perhaps why you exist is not a question that has an answer in the way a maths problem does. Perhaps it is a koan &#8212; a question designed not to be solved but to dissolve the one asking it. When the questioner becomes quiet enough, something else speaks. And what it says is not a reason. It is a recognition: you are the form the universe built for the purpose of waking up to itself.</p>
+    `
+  },
+  {
+    category: "Vedic Wisdom",
+    title: "How do ancient Indian texts explain the origin of time, space and matter?",
+    date: "June 2025",
+    tags: ["Vedas", "Cosmology", "Science"],
+    body: `
+      <p>Before the Big Bang. Before space. Before time itself. What was there? Modern cosmology calls it the singularity &#8212; a point of infinite density from which everything exploded into being 13.8 billion years ago. The honest admission of physics is that the equations break down at that moment. We cannot see behind it. The Rig Veda, composed roughly 3,500 years ago, sat with exactly this same question &#8212; and gave an answer that has not been improved upon.</p>
+      <h3>The Nasadiya Sukta: The Hymn of Creation</h3>
+      <div class="mantra">Nasad asin no sad asit tadanim &#8212; Then, there was neither existence nor non-existence.</div>
+      <p>This is the opening of the Nasadiya Sukta, Rig Veda 10.129 &#8212; one of the most remarkable philosophical poems ever written. It does not claim to know what was before creation. It describes the question itself, holding the uncertainty with intellectual honesty that many modern readers find startling. It asks who knows? Who was there to observe? And concludes that even the gods may not know &#8212; for they came after creation. The text ends in genuine open inquiry, not dogma.</p>
+      <h3>What Carl Sagan Said</h3>
+      <blockquote><p>"The Hindu religion is the only one of the world's great faiths dedicated to the idea that the Cosmos itself undergoes an immense number of deaths and rebirths. It is the only religion in which the time scales correspond to those of modern scientific cosmology &#8212; with cycles running to a day and night of Brahma, 8.64 billion years long."</p></blockquote>
+      <h3>Heisenberg and the Vedas</h3>
+      <p>Werner Heisenberg &#8212; the physicist who gave us the uncertainty principle &#8212; said that quantum theory will not look ridiculous to people who have read Vedanta. He found in the Upanishadic framework a philosophical structure compatible with the strange, observer-dependent, non-local reality that quantum mechanics describes. The unity and continuity of Vedanta, he noted, mirrors the unity and continuity of wave mechanics.</p>
+      <h3>The Speed of Light in Ancient Texts</h3>
+      <p>In a commentary on the Rig Veda, the ancient astronomer Sayana described the speed of the sun as 4,404 yojanas per nimesha &#8212; a unit of distance per unit of time. When converted using standard ancient Indian measurements, this calculates to almost exactly 186,000 miles per second: the speed of light. Whether this was calculation, inspiration, or coincidence remains debated. That it appeared in a text predating modern optics by millennia is not.</p>
+      <h3>The Purnamadah Mantra</h3>
+      <div class="mantra">Purnamadah purnamidam purnaat purnamudachyate &#8212; That is whole. This is whole. From wholeness, wholeness comes.</div>
+      <p>This mantra from the Isha Upanishad describes infinity in terms that a mathematician would recognise: infinity minus infinity is still infinity. Remove a complete set from a complete set, and completeness remains. It is a description of conservation of consciousness &#8212; that nothing is added to or subtracted from the total, only transformed.</p>
+    `
+  },
+  {
+    category: "Vedic Wisdom",
+    title: "Did the Puranas describe time dilation 2,500 years before Einstein?",
+    date: "June 2025",
+    tags: ["Time Dilation", "Puranas", "Relativity"],
+    body: `
+      <p>Einstein's theory of special and general relativity established something that still feels surreal: time is not constant. It runs slower near strong gravitational fields and at high velocities. A clock on a mountain runs slightly faster than one at sea level. Astronauts returning from long missions age fractionally less than people who stayed on Earth. Time bends. This was considered a revolutionary insight in 1905. The Puranas were describing it &#8212; in story form &#8212; approximately 2,500 years earlier.</p>
+      <h3>The Story of King Kakudmi: Gravitational Time Dilation</h3>
+      <p>In the Bhagavata Purana (Canto 9, Chapter 3) and the Vishnu Purana (Book 4, Chapter 1), King Kakudmi takes his daughter Revati to Brahmaloka &#8212; the realm of Brahma, the creator &#8212; to seek counsel on a suitable husband for her. They wait briefly for Brahma to finish receiving another visitor. When they present their question, Brahma laughs gently and tells them something devastating.</p>
+      <p>While they waited, 27 Chaturyugas had passed on Earth. One Chaturyuga is approximately 4.32 million years. Twenty-seven of them is over 116 million years. Every king Kakudmi had considered as a suitor, every family member, every friend &#8212; all gone. Generations beyond counting had risen and fallen. When they returned to Earth, the Bhagavata Purana describes that the people they encountered were smaller, shorter-lived, and diminished compared to those of Kakudmi's era.</p>
+      <blockquote><p>Brahmaloka sits at a higher gravitational or dimensional plane. Time there runs slower. A brief visit there equals millions of years below. This is gravitational time dilation &#8212; told as a story.</p></blockquote>
+      <h3>The Story of King Muchukunda: Velocity-Based Time Dilation</h3>
+      <p>In the Mahabharata and the Bhagavata Purana, King Muchukunda was a great warrior who fought alongside the Devas &#8212; the celestial beings &#8212; for what seemed to him a substantial period. When he asked Indra to return to Earth, Indra told him apologetically that while they had been fighting together in the celestial realm, many human ages had passed below. His dynasty had ended. His kingdom had dissolved. His entire world had become history.</p>
+      <p>Muchukunda asked for the gift of sleep &#8212; so profound that anyone who woke him would be consumed by his gaze. He slept in a cave. He woke in the Dvapara Yuga, to a world entirely unrecognisable. In the Bhagavata Purana, he awakens to encounter Krishna, who tells him he is among the last of the ancients.</p>
+      <h3>What Einstein Confirmed</h3>
+      <p>Both stories encode the same insight: time is relative to the reference frame of the observer. A brief experience in one realm corresponds to millions of years in another. Einstein's mathematics and the Puranic stories arrive at identical conclusions through entirely different methods. Whether the ancient authors understood relativity in the modern sense, or arrived at the same truth through visionary experience, or simply constructed extraordinary coincidences &#8212; is a question worth sitting with.</p>
+      <p>As the Katha Upanishad says: Anoraniyan mahato mahiyan &#8212; Smaller than the smallest, greater than the greatest is the Self. Time, in Vedic cosmology, is not a container that holds events. It is a property of consciousness. And consciousness, like the Atman, is not bound by it.</p>
+    `
+  }
+];
 
-    filterBtns.forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        filterBtns.forEach(function(b) { b.classList.remove('active'); });
-        btn.classList.add('active');
-        var filter = btn.getAttribute('data-filter');
-        cards.forEach(function(card) {
-          if (filter === 'all' || card.getAttribute('data-category') === filter) {
-            card.classList.remove('hidden');
-          } else {
-            card.classList.add('hidden');
-          }
-        });
-      });
+function openModal(index) {
+  currentPost = index;
+  renderModal();
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('modalBox').scrollTop = 0;
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function handleOverlayClick(e) {
+  if (e.target === document.getElementById('modalOverlay')) closeModal();
+}
+
+function renderModal() {
+  var p = posts[currentPost];
+  document.getElementById('mCategory').textContent = p.category;
+  document.getElementById('mTitle').textContent = p.title;
+  document.getElementById('mBody').innerHTML = p.body;
+  var meta = '<span class="modal-date">' + p.date + '</span>';
+  p.tags.forEach(function(t) { meta += '<span class="modal-tag">' + t + '</span>'; });
+  document.getElementById('mMeta').innerHTML = meta;
+  document.getElementById('modalBox').scrollTop = 0;
+}
+
+function nextPost() {
+  currentPost = (currentPost + 1) % posts.length;
+  renderModal();
+}
+
+function prevPost() {
+  currentPost = (currentPost - 1 + posts.length) % posts.length;
+  renderModal();
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeModal();
+});
+
+// Filter
+document.querySelectorAll('.filter-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    var filter = btn.getAttribute('data-filter');
+    document.querySelectorAll('.blog-card').forEach(function(card) {
+      if (filter === 'all' || card.getAttribute('data-category') === filter) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
     });
-  </script>
+  });
+});
+</script>
+</body>
+</html>
 
 </body>
 </html>
